@@ -13,14 +13,14 @@ Running
 
 First install the dependencies with bundle:
 
- bundle
+	bundle
 
 I hope you are using RVM and then for running just type:
 
- rake
+	rake
 
 to start the application, otherwise:
 
- jruby --1.9 jungle.rb
+	jruby --1.9 jungle.rb
 
 of course JRuby needs to be installed.
