@@ -66,8 +66,8 @@ module Jungle
     def initialize
       super
       set_default_provider JXMapKit::DefaultProviders::OpenStreetMaps
-      set_zoom_slider_visible = false
-      set_zoom_buttons_visible = false
+      set_zoom_slider_visible false
+      set_zoom_buttons_visible false
       @waypoint_painter = WaypointPainter.new
       get_main_map.set_overlay_painter @waypoint_painter
     end
