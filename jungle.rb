@@ -1,8 +1,10 @@
-require 'java'
+# Ruby
 require 'geocoder'
 
-$CLASSPATH << 'deps/swingx.jar'
-$CLASSPATH << 'deps/swingx_ws.jar'
+# Java
+require 'java'
+require 'lib/swingx-1.6.jar'
+require 'lib/swingx-ws-1.0.jar'
 
 java_import 'java.util.HashSet'
 java_import 'java.awt.BorderLayout'
