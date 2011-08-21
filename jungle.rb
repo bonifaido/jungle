@@ -17,11 +17,13 @@ java_import 'org.jdesktop.swingx.mapviewer.WaypointPainter'
 
 module Geocoder
   module Result
+
     class Base
       def to_geopos
         GeoPosition.new latitude, longitude
       end
     end
+
   end
 end
 
@@ -57,7 +59,6 @@ module Jungle
   end
 
   class MapKit < JXMapKit
-
     def initialize
       super
       set_default_provider JXMapKit::DefaultProviders::OpenStreetMaps
@@ -68,15 +69,11 @@ module Jungle
     def waypoints=(waypoints)
       @waypoint_painter.set_waypoints(HashSet.new(waypoints))
     end
-    
-    def to_geopos(name)
-      results = Geocoder.search name
-      if geo = results.first
-        GeoPosition.new geo.latitude, geo.longitude
-      end
-    end
   end
 
 end
+
+
+Geocoder::Configuration.cache = {}
 
 Jungle::MainWindow.new.set_visible true
