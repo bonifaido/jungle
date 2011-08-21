@@ -48,7 +48,9 @@ module Jungle
         if result = Geocoder.search(name).first
           text_field.text = result.address
           geopos = result.to_geopos
-          mapkit.get_main_map.center_position = geopos
+          mapkit.get_main_map.address_location = geopos
+          # possible values: 1..15
+          mapkit.zoom = 8
           mapkit.waypoints = [Waypoint.new(geopos)]
         end
       end
@@ -64,6 +66,8 @@ module Jungle
     def initialize
       super
       set_default_provider JXMapKit::DefaultProviders::OpenStreetMaps
+      set_zoom_slider_visible = false
+      set_zoom_buttons_visible = false
       @waypoint_painter = WaypointPainter.new
       get_main_map.set_overlay_painter @waypoint_painter
     end
