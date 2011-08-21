@@ -22,6 +22,3 @@ To start the application:
 or
 
 	jruby --1.9 jungle.rb
-
-
-of course JRuby needs to be installed.
